@@ -1,42 +1,59 @@
-const login = () => {
- /* La idea es poder leer el valor de los input para hacer las validaciones pertinentes.
- El tema es que no se que error puedo tener que no me quiere leer el valor del primer input. Necesito que revises la logica y 
- y me dias si esta bien*/
-  console.log(document.getElementById("user").value)
-  debugger;
-    const onClick = () =>{
-       
-        if(document.getElementById("user").value=== 'yrobertordaz@gmail.com' && document.getElementById("password").value === 'User*123')
-        {
-          this.props.history.Push('/users')
-        }
-        else{
-          alert('Usuario y/o contraseña no son correctos')
-        }
+import {useState} from 'react';
+
+const Login = () => {
+  /*Creando estados con useState */
+    const [user, setUser] = useState({
+      email: '',
+      password: '',
+    });
+
+
+/**Manejando estados de cada input de forma independiente */
+    const handleChangeEmail = (e)=> {
+         setUser(...user,{email: e.target.value})
       }
+    
+     const handleChangePassword = (e)=> {
+        setUser(...user,{password: e.target.value})
+     }
+/**Funcion de redireccionamiento si el email y el password coinciden */
+    const onClick = (e) =>{
+       if(user.email === "yrobertordaz@gmail.com" && user.password === "User*123")
+         this.props.history.push('/users')
+       else
+         alert("Usuario y/o contraseña son incorrectas")  
+    }
+
+    const handleSubmit = (e) =>{
+       e.preventDefault();
+    }
+
     return(
         <div className="container">
         <div className = "App">
-          <form className = "form-control" name = "formName">
+          <form className = "form-control" onSubmit = {()=>handleSubmit}>
             <div>
               
-              <input 
-                id = "user"
+              <input
+                onChange = {()=>handleChangeEmail} 
+                id = "email"
                 type = "text" 
                 className = "form-group" 
                 placeholder = "email" 
-                name = "user"
-                value = "Alejandro"
+                name = "email"
+                value = {user.email}
                 />
             </div>
             <div>
               
               <input 
+                onChange = {()=>handleChangePassword}
                 id = "password"
                 type = "password" 
                 className = "form-group" 
                 placeholder = "password" 
-                name = "password"/>
+                name = "password"
+                value = {user.password}/>
             </div>
             <button className = "btn btn-primary" onClick = {()=> onClick}>Login</button>
           </form>
@@ -45,4 +62,4 @@ const login = () => {
     );
 }
 
-export default login;
+export default Login;
