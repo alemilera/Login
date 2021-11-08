@@ -13,9 +13,12 @@ const Login = () => {
          setUser(...user,{email: e.target.value})
       }
     
-     const handleChangePassword = (e)=> {
+     const handleChangePassword = (e) => {
         setUser(...user,{password: e.target.value})
      }
+
+
+
 /**Funcion de redireccionamiento si el email y el password coinciden */
     const onClick = (e) =>{
        if(user.email === "yrobertordaz@gmail.com" && user.password === "User*123")
@@ -31,11 +34,11 @@ const Login = () => {
     return(
         <div className="container">
         <div className = "App">
-          <form className = "form-control" onSubmit = {()=>handleSubmit}>
+          <form className = "form-control" onSubmit = {(e)=>handleSubmit}>
             <div>
               
               <input
-                onChange = {()=>handleChangeEmail} 
+                onChange = {(value)=>handleChangeEmail(value)} 
                 id = "email"
                 type = "text" 
                 className = "form-group" 
@@ -47,7 +50,7 @@ const Login = () => {
             <div>
               
               <input 
-                onChange = {()=>handleChangePassword}
+                onChange = {(value)=>handleChangePassword(value)}
                 id = "password"
                 type = "password" 
                 className = "form-group" 
