@@ -1,32 +1,57 @@
 import axios from 'axios';
-import {Component} from 'react';
+import {useState, useEffect} from 'react';
 
-class usersList extends Component{
-    state = {
-        users:[]
-    }
+const UsersList = () =>{
+    /**Cree un useState que calca el modelo que se va a mostrar */
+    const [users, setUser] = useState(
+        {
+          id: '',
+          email: '',
+          first_name: '',
+          last_name: '',
+          avatar: ''
+        }
+    );
 
-   async componentDidMount(){
-       const res = await axios.get('https://reqres.in/api/users');
-       this.setState({users: res.data})
-       console.log(this.state.users);
-       
-    }
+    /**Aqui hago el llamado de la peticion get, habia usado async await pero me daba error*/
+    useEffect(()=> {
+        try{
+            let response = axios.get('https://reqres.in/api/users');
+            let data = response.json();
+            setUser(
+                [...data, 
+                    {id: data.id, 
+                     email: data.email, 
+                     first_name: data.first_name, 
+                     last_name: data.last_name, 
+                     avatar: data.avatar}
+                ]);
+        }
+        catch(error){
+            console.error('problem')
+        }
+    }, []);
+    /**El segundo useEffect es para actualizaciones de la lista */
+    useEffect(() =>{
+        let newState = users.map((e) => e);
+        setUser(newState);
+        console.log(newState);
+    }, [users])
     
-    render(){
-        
         return(
             <div>
               <ul className = "list-group">
-                   {this.state.users.map(user => 
-                   /**La funcion map no se me reconoce como TAL */
+                {users.map(user => 
+                  /**He aqui el error
+                   * La funcion map no se me reconoce como*/
                     <li className = "list-group-item list-group-item-action" key = {user._id}>
                         {user.email}    
-                    </li>)}
+                   </li>)}
                </ul> 
             </div>
         );
-    }
+    
 }
 
-export default usersList;
+export default UsersList;
+

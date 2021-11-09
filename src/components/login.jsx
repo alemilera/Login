@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom'
 
 const Login = () => {
   /*Creando estados con useState */
@@ -7,22 +8,25 @@ const Login = () => {
       password: '',
     });
 
+    let history = useHistory();
+
 
 /**Manejando estados de cada input de forma independiente */
     const handleChangeEmail = (e)=> {
-         setUser(...user,{email: e.target.value})
+         setUser({...user,email: e.target.value})
       }
     
      const handleChangePassword = (e) => {
-        setUser(...user,{password: e.target.value})
+        setUser({...user, password: e.target.value})
      }
 
 
 
 /**Funcion de redireccionamiento si el email y el password coinciden */
     const onClick = (e) =>{
+        
        if(user.email === "yrobertordaz@gmail.com" && user.password === "User*123")
-         this.props.history.push('/users')
+         history.push('/users')
        else
          alert("Usuario y/o contraseña son incorrectas")  
     }
@@ -34,7 +38,7 @@ const Login = () => {
     return(
         <div className="container">
         <div className = "App">
-          <form className = "form-control" onSubmit = {(e)=>handleSubmit}>
+          <form className = "form-control" onSubmit = {handleSubmit}>
             <div>
               
               <input
@@ -58,7 +62,7 @@ const Login = () => {
                 name = "password"
                 value = {user.password}/>
             </div>
-            <button className = "btn btn-primary" onClick = {()=> onClick}>Login</button>
+            <button className = "btn btn-primary" onClick = {onClick}>Login</button>
           </form>
         </div>
       </div>   
