@@ -3,19 +3,17 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route} from 'react-router-dom'
 import Login from './components/login';
-import usersList from './components/usersList';
+import Users from './components/users/users';
 
 function App() {
-  /** Problematica del dia:
-   * En el login, especificamente en el frontend lo puedo escribir en el input
-   */
+ 
 
   return (
    <div className = "App">
       <BrowserRouter>
         <div>
           <Route exact path = "/" component = {Login}/>
-          <Route exact path = "/users" component = {usersList}/>
+          <Route exact path = "/users" component = {Users}/>
         </div>
       </BrowserRouter>
    </div>
