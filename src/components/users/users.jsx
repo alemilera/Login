@@ -6,14 +6,12 @@ const Users = () => {
  
   const [users, setUsers] = useState({
     data:[], 
-    page: 0
+    page: 1
   });
 
   
   useEffect(async () => {
-      //Cargue la segunda funcion
-     // let user = await UserService.getUsers();
-      let user = await UserService.getUsersTest(users.page)
+      let user = await UserService.getUsers();
       setUsers({...users, data: user.data.data, page: user.data.page})
       console.log(user)
     }, []);
@@ -21,11 +19,11 @@ const Users = () => {
     //en esta funcion lo que intento es mostrar la otra vista pero hay algo mal
   const handlePage = async() => {
     let user = await UserService.getUsersTest(users.page)
-    if(users.page < user.data.total_pages)
+    if(users.page <= user.data.total_pages)
     {
       user.data.page +=1;
-      setUsers({...users, data: user.data.data, page: user.data.page})
-      debugger;
+      setUsers({data: user.data.data, page: user.data.page})
+      
     }
     else{
       alert('No hay mas datos por mostrar')

@@ -17,6 +17,12 @@ export default class UserService {
     const user = await axios.get(url);
     return user;
   }
+
+  static async getUser(id){
+    let url = `https://reqres.in/api/users/?id=${id}`;
+    const user = await axios.get(url);
+    return user;
+  }
   // static getYears(makeId, modelId) {
   //     let uri = `/api/make/years?makeId=${makeId}&modelId=${modelId}`;
   //     return Axios.get(uri);

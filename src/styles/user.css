@@ -1,0 +1,40 @@
+.container-box{
+    justify-content: center;
+}
+
+.user-box{
+    
+    border: 3px solid rgb(240, 240, 238);
+    background-color: rgb(189, 181, 181);
+    display: flex;
+    justify-content: center;
+    
+}
+
+.labels{
+    display: flex;
+    flex-direction: column;
+}
+
+.label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#Buttons{
+    
+    background-color: black;
+    
+}
+
+.ButtonsSpace{
+    display: inline-flex;
+       
+}
+
+button{
+    margin: 13px 12px 12px 10px;
+}
+
