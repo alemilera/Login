@@ -52,49 +52,42 @@ const User = () =>{
 
     return(
         <div className = "container-box">
-            <div className = "user-box">
-                <div className = "labels">
+             <div id = "Element">
+                <button className = "Left"
+                    className = "btn btn-primary" 
+                    onClick = {handlePrevious}>
+                        <span className="glyphicon glyphicon-arrow-left">Previous</span>
+                </button>   
+             </div> 
 
+             <div id = "Element">
+                    <div>
+                        <img className="Avatar" alt="Responsive image" src={user.data.avatar} />
+                    </div>
                     <div className = "label">
                         <h5>Email: </h5>
                         <h5>{user.data.email}</h5>
                     </div>
+
                     <div className = "label">
-                        <h5>First_name: </h5>
+                        <h5>Firstname: </h5>
                         <h5>{user.data.first_name}</h5>
                     </div>
+                
                     <div className = "label">
-                        <h5>Last_name: </h5>
+                        <h5>Lastname: </h5>
                         <h5>{user.data.last_name}</h5>
                     </div>
-                    <div className = "label">
-                        <h5>Avatar: </h5>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <img class="img-fluid" src={user.data.avatar} />
-                            </div>
-                        </div>
-                    </div>
+             </div> 
 
-                </div>
-
-               
-            </div> 
-            <div className = "form-control" id = "Buttons">
-                    
-                   <div className = "ButtonsSpace">
-                        <button 
-                            className = "btn btn-primary" 
-                            onClick = {handlePrevious}>
-                                Previous
-                        </button>
-                        <button className = "button2" 
-                            className = "btn btn-primary " 
-                            onClick = {handleNext}>
-                                Next
-                        </button>
-                   </div>
-            </div>               
+             <div id = "Element">
+                <button
+                    className = "btn btn-primary" 
+                    onClick = {handleNext}>
+                        <span className="glyphicon glyphicon-arrow-right">Next</span>
+                </button>
+             </div>  
+              
         </div>
     );
 }

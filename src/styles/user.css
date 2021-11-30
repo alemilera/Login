@@ -1,40 +1,35 @@
 .container-box{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-}
-
-.user-box{
+    align-content: stretch;
     
-    border: 3px solid rgb(240, 240, 238);
-    background-color: rgb(189, 181, 181);
-    display: flex;
-    justify-content: center;
     
-}
-
-.labels{
-    display: flex;
-    flex-direction: column;
 }
 
 .label{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    justify-content: space-around;
+    flex-direction: column;
+
 }
 
-#Buttons{
-    
-    background-color: black;
-    
+.Avatar{
+    border-radius: 50%;
+
 }
 
-.ButtonsSpace{
-    display: inline-flex;
-       
+#Element{
+    margin: 10px, 10px, 10px, 10px;
+
 }
 
-button{
-    margin: 13px 12px 12px 10px;
-}
+
+
+
+
+
+
+
 
