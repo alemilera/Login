@@ -3,9 +3,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    align-content: stretch;
     
-    
+    border: 1px solid;
+    height: 70%;
+    width: 50%;
+}
+
+.Left{
+    margin: 50px 50px 50px 50px;
+}
+.Rigth{
+    margin: 50px 50px 50px 50px;
 }
 
 .label{
@@ -20,10 +28,6 @@
 
 }
 
-#Element{
-    margin: 10px, 10px, 10px, 10px;
-
-}
 
 
 
