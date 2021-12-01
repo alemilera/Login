@@ -38,15 +38,35 @@ return (
     <div className = "container">
       <div className = "row">
         <div className = "col">
-          <ul>
+          <table className = "table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Email</th>
+              <th scope="col">Firstname</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">Avatar</th>
+            </tr>
+          </thead>
+          <tbody>
+            
             {
               users.data.map((dat) => {
-                 return (<li key = {dat.id}
-                  >
-                    {dat.email}
-                  </li>)})
+                 return (<tr key = {dat.id}> 
+                    
+                        <td>{dat.email}</td>
+                        <td>{dat.first_name}</td>
+                        <td>{dat.last_name}</td>
+                        <td><img className="Avatar" alt="Responsive image" src={dat.avatar} /></td>
+                      
+                    </tr>
+                  
+                  )})
+                  
             }
-          </ul>
+            
+          
+          </tbody>  
+          </table>
         </div>
         <div>
           <button 
