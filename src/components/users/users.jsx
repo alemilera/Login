@@ -56,7 +56,7 @@ return (
                         <td>{dat.email}</td>
                         <td>{dat.first_name}</td>
                         <td>{dat.last_name}</td>
-                        <td><img className="Avatar" alt="Responsive image" src={dat.avatar} /></td>
+                        <td><img className="AvatarList" alt="Responsive image" src={dat.avatar} /></td>
                       
                     </tr>
                   

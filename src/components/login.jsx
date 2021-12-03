@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {useHistory} from 'react-router-dom'
 
+
 const Login = () => {
   /*Creando estados con useState */
     const [user, setUser] = useState({
@@ -21,12 +22,14 @@ const Login = () => {
      }
 
 
-
+     const email = 'yrobertordaz@gmail.com';
+     const password = 'User*123';
 /**Funcion de redireccionamiento si el email y el password coinciden */
     const onClick = (e) =>{
         
-       if(user.email === "yrobertordaz@gmail.com" && user.password === "User*123")
+       if(user.email === email && user.password === password)
          history.push('/users')
+                 
        else
          alert("Usuario y/o contraseña son incorrectas")  
     }
